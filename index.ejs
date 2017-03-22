@@ -32,7 +32,7 @@
       <% } %>
     <% } %>
 
-    <title <%= (!htmlWebpackPlugin.options.useHelmet) ? "" : "<%- helmet.titleAttributes.toString() %\>" %>><%= (!htmlWebpackPlugin.options.useHelmet) ? htmlWebpackPlugin.options.title : "<%- helmet.title.toString() %\>" %></title>
+    <title><%= (!htmlWebpackPlugin.options.useHelmet) ? htmlWebpackPlugin.options.title : "<%- helmet.title.toString() %\>" %></title>
 
     <%= (!htmlWebpackPlugin.options.useHelmet) ? "" : "<%- helmet.meta.toString() %\>" %>
     <%= (!htmlWebpackPlugin.options.useHelmet) ? "" : "<%- helmet.link.toString() %\>" %>
