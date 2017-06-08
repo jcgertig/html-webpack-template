@@ -15,6 +15,15 @@
 <!--[if IE 9 ]>                <html class="ie9" <%= (!htmlWebpackPlugin.options.useHelmet) ? "lang='en'" : "<%- helmet.htmlAttributes.toString() %\>" %><% if (htmlWebpackPlugin.files.manifest) { %> manifest="<%= htmlWebpackPlugin.files.manifest %>"<% } %>> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html <%= (!htmlWebpackPlugin.options.useHelmet) ? "lang='en'" : "<%- helmet.htmlAttributes.toString() %\>" %><% if (htmlWebpackPlugin.files.manifest) { %> manifest="<%= htmlWebpackPlugin.files.manifest %>"<% } %>> <!--<![endif]-->
   <head>
+    <% if (htmlWebpackPlugin.options.googleAdSense) { %>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: '<%= htmlWebpackPlugin.options.googleAdSense.client %>',
+      enable_page_level_ads: <%= htmlWebpackPlugin.options.googleAdSense.pageLevelAds || true %>
+      });
+    </script>
+    <% } %>
     <meta charset="utf-8">
     <meta content="ie=edge" http-equiv="x-ua-compatible">
 
