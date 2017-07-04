@@ -7,7 +7,6 @@
 <% htmlWebpackPlugin.options.scriptBlocks = htmlWebpackPlugin.options.scriptBlocks || [] %>
 <% htmlWebpackPlugin.options.devMiddleware = htmlWebpackPlugin.options.devMiddleware || false %>
 <% htmlWebpackPlugin.options.useHelmet = htmlWebpackPlugin.options.useHelmet || false %>
-<% htmlWebpackPlugin.options.useAppVar = htmlWebpackPlugin.options.useAppVar || false %>
 
 <!DOCTYPE html>
 <!--[if lt IE 7 ]>             <html class="ie6" <%= (!htmlWebpackPlugin.options.useHelmet) ? "lang='en'" : "<%- helmet.htmlAttributes.toString() %\>" %><% if (htmlWebpackPlugin.files.manifest) { %> manifest="<%= htmlWebpackPlugin.files.manifest %>"<% } %>> <![endif]-->
@@ -78,7 +77,7 @@
 
     <% if (htmlWebpackPlugin.options.appMountId) { %>
     <div id="<%= htmlWebpackPlugin.options.appMountId %>">
-      <%= (!htmlWebpackPlugin.options.useAppVar) ? "" : "<%= "<%- app %" %>>" %>
+      <%= (!htmlWebpackPlugin.options.useHelmet) ? "" : "<%- app %\>" %>
     </div>
     <% } %>
     <% for (item of htmlWebpackPlugin.options.appMountIds) { %>
